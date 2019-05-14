@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
+import { HomeComponent } from './global/components/home/home.component';
+import { MainHistoricoComponent } from './historico-spain/components/main-historico/main-historico.component';
 
-const routes: Routes = [];
+const APP_ROUTES:Routes = [
+    { path: 'home', component: HomeComponent }, 
+    { path: 'historico', component: MainHistoricoComponent }, 
+    { path: '**', redirectTo: 'historico' }
+];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+
+export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, { useHash: true});
