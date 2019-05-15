@@ -24,7 +24,7 @@ export class SelectEstacionComponent implements OnInit {
                 break;
             }
         }
-        // console.log(this.data.datosEstacion);
+         // console.log(this.data.datosEstacion);
     }
 
 }
