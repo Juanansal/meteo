@@ -5,5 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class DataHistoricoService {
 
+	todasEstaciones: any = [];
+
+	ciudad: string;
+	estacionesCiudad: any = [];
+
+	datosEstacion: any;
+
   	constructor() { }
 }

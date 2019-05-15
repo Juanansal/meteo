@@ -1,7 +1,21 @@
 
 
 <div class="container">
-    <app-select-ciudad></app-select-ciudad>
+
+
+    <div class="cargando" *ngIf="cargando">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Cargando...</span>
+        </div>
+    </div>
+
+    <div *ngIf="!cargando">
+        <app-select-ciudad></app-select-ciudad>
+        <app-select-estacion *ngIf="data.estacionesCiudad.length!=0"></app-select-estacion>
+        <br><br>
+        <app-select-fechas *ngIf="data.estacionesCiudad.length!=0"></app-select-fechas>
+    </div>
+   
 </div>
 
 

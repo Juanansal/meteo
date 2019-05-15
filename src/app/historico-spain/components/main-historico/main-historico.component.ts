@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AemetApiService } from 'src/app/global/services/aemet-api.service';
+import { DataHistoricoService } from '../../services/data-historico.service';
 
 @Component({
   selector: 'app-main-historico',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainHistoricoComponent implements OnInit {
 
-  constructor() { }
+	public cargando: boolean = true;
 
-  ngOnInit() {
-  }
+	constructor( public aemetApi: AemetApiService, public data: DataHistoricoService ) { }
+
+	ngOnInit() {
+		this.cargarEstaciones();
+	}
+
+	public async cargarEstaciones() {
+
+		await this.aemetApi.dameEstaciones()
+		.then( data => {
+			this.data.todasEstaciones = data;
+			this.cargando = false;
+		})
+		.catch( error => console.log(error));	
+	}
 
 }

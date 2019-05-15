@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { AemetApiService } from 'src/app/global/services/aemet-api.service';
+import { DataHistoricoService } from '../../services/data-historico.service';
 
 @Component({
 	selector: 'app-select-ciudad',
@@ -8,29 +9,25 @@ import { AemetApiService } from 'src/app/global/services/aemet-api.service';
 })
 export class SelectCiudadComponent implements OnInit {
 
-	public cargando: boolean = true
-	public estaciones: any;
+	constructor( public aemetApi:AemetApiService, public data: DataHistoricoService) { }
 
-	constructor( public aemetApi:AemetApiService) { }
-
-	ngOnInit() {
-		this.cargarEstaciones();
-	}
-
-
-	public async cargarEstaciones() {
-
-		await this.aemetApi.test()
-		.then( data => {
-			this.estaciones = data;
-			this.cargando = false;
-		})
-		.catch( error => console.log(error));
-		
-	}
+	ngOnInit() {}
 
 	public filtrarEstaciones(ciudad: string) {
-		console.log(this.estaciones);
+		console.log(this.data.todasEstaciones);
+
+		let todo: Array<any> = this.data.todasEstaciones;
+		let filtrado: Array<any> = [];
+
+		// Se realiza el filtrado
+		for(let i=0; i<todo.length; i++) {
+			if(todo[i].provincia == ciudad) {
+				filtrado.push(todo[i]);
+			}
+		}
+
+		// Se insertan los nuevos datos en la biblioteca
+		this.data.estacionesCiudad = filtrado;
 	}
 
 

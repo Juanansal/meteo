@@ -11,7 +11,7 @@ export class AemetApiService {
 
 	constructor(public http: HttpClient) { }
 	  
-	public test() {
+	public dameEstaciones() {
 
 		let promesa = new Promise( (resolve, reject) => {
 
