@@ -39,11 +39,18 @@ export class SelectFechasComponent implements OnInit {
 
 		await this.apiAemet.dameDatosPorMes(estacion,anyo)
 		.then(data => {
-			console.log(data)
+			//console.log(data);
+
+			// Se insertan los datos encontrados en la biblioteca
+			this.data.modo = 1;
+			this.data.datosParaGrafica = data;
 		})
 		.catch(error => console.log(error));
 
 		this.cargando = false;
+		console.log(this.data.datosParaGrafica);
+
+		
 		
 	}
 

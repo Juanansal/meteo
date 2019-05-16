@@ -12,5 +12,13 @@ export class DataHistoricoService {
 
 	datosEstacion: any = null;
 
+
+
+	// 1 Lineas
+	modo: number = -1;
+	datosParaGrafica: any = [];
+
+
+
   	constructor() { }
 }
