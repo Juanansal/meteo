@@ -1,6 +1,6 @@
 
 <span>Año</span>
 <select #select1anyo class="form-control" class="form-control">  
-    <option *ngFor="let item of anyos" [value]="item"> {{item}} </option>              
+    <option [selected]='ultimo' *ngFor="let item of anyos; let ultimo=last;" [value]="item"> {{item}} </option>              
 </select>
-<button class="btn btn-success" (click)="pedirDatosMes(select1anyo.value)">Enviar</button>
+<button [disabled]="data.datosEstacion==null" class="btn btn-success" (click)="pedirDatosMes(select1anyo.value)">Enviar</button>

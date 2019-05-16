@@ -5,8 +5,8 @@
 
     <!-- Select de seleccion de provincia -->
     <select #select (change)="seleccionEstacion(select.value)" #selectEstacion class="form-control" class="form-control">  
-        <option value="">Seleccione una estación</option>
-        <option *ngFor="let item of data.estacionesCiudad" [value]="item.indicativo"> {{ item.nombre}} </option>              
+        <option [value]="null">Seleccione una estación</option>
+        <option *ngFor="let item of data.estacionesCiudad" [value]="item.indicativo"> {{ item.nombre }} </option>              
 
     </select>
 </div>

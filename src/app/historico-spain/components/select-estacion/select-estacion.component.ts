@@ -8,6 +8,8 @@ import { DataHistoricoService } from '../../services/data-historico.service';
 })
 export class SelectEstacionComponent implements OnInit {
 
+    vacio: string = '';
+
     constructor( public data: DataHistoricoService) { }
 
     ngOnInit() {
@@ -15,8 +17,9 @@ export class SelectEstacionComponent implements OnInit {
 
     seleccionEstacion(id: string) {
         let estaciones = this.data.estacionesCiudad;
+        this.data.datosEstacion = null;
 
-        // Se selecciona en la lista de estaciones por ciudad, la que correcponde con su id, y se almacena individualmente
+        // Se selecciona en la lista de estaciones por ciudad, la que corresponde con su id, y se almacena individualmente
         for(let i=0; i<estaciones.length; i++) {
 
             if(estaciones[i].indicativo == id) {
@@ -24,7 +27,7 @@ export class SelectEstacionComponent implements OnInit {
                 break;
             }
         }
-         // console.log(this.data.datosEstacion);
+          console.log(this.data.datosEstacion);
     }
 
 }

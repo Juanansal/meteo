@@ -10,7 +10,7 @@ export class DataHistoricoService {
 	ciudad: string;
 	estacionesCiudad: any = [];
 
-	datosEstacion: any;
+	datosEstacion: any = null;
 
   	constructor() { }
 }

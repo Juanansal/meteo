@@ -26,6 +26,8 @@ export class SelectFechasComponent implements OnInit {
 			this.anyos.push(i);
 		}
 
+		
+
 	}
 	
 	public async pedirDatosMes(anyo:string) {

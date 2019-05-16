@@ -29,8 +29,6 @@ export class AemetApiService {
 
 		let promesa = new Promise( (resolve, reject) => {
 
-			console.log('Pasa por aqui');
-
             this.http.get(`${this.host}/api/meteo/dameDatosDeEstacionPorMes?anyo=${anyo}&estacion=${idEstacion}`)
             .subscribe(data => { 
                 resolve(data);

@@ -29,6 +29,9 @@ export class SelectCiudadComponent implements OnInit {
 		// Se insertan los nuevos datos en la biblioteca
 		// Todos los datos
 		this.data.estacionesCiudad = filtrado;
+
+		// Se elemina la estacion seleccionada si hubiera una
+		this.data.datosEstacion==''
 	}
 
 
