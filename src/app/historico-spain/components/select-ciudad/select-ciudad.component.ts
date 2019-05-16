@@ -31,7 +31,7 @@ export class SelectCiudadComponent implements OnInit {
 		this.data.estacionesCiudad = filtrado;
 
 		// Se elimina la estacion seleccionada si hubiera una
-		this.data.datosEstacion==''
+		this.data.datosEstacion=[];
 	}
 
 
