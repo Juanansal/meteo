@@ -20,5 +20,12 @@ export class DataHistoricoService {
 
 
 
-  	constructor() { }
+	constructor() { }
+	
+	vaciar() {
+		this.estacionesCiudad = [];
+		this.datosEstacion = null;
+		this.modo = -1;
+		this.datosParaGrafica = [];
+	}
 }

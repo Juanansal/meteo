@@ -18,6 +18,7 @@ export class SelectEstacionComponent implements OnInit {
     seleccionEstacion(id: string) {
         let estaciones = this.data.estacionesCiudad;
         this.data.datosEstacion = null;
+        //this.data.vaciar()
 
         // Se selecciona en la lista de estaciones por ciudad, la que corresponde con su id, y se almacena individualmente
         for(let i=0; i<estaciones.length; i++) {
