@@ -23,6 +23,7 @@ import { GraficasHistoricoComponent } from './historico-spain/components/grafica
 // Servicios
 import { AemetApiService } from './global/services/aemet-api.service';
 import { DataHistoricoService } from './historico-spain/services/data-historico.service';
+import { DataGraficasService } from './historico-spain/services/data-graficas.service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { DataHistoricoService } from './historico-spain/services/data-historico.
 		APP_ROUTING, // rutas
 		HttpClientModule    // Http
 	],
-	providers: [AemetApiService, DataHistoricoService],
+	providers: [AemetApiService, DataHistoricoService, DataGraficasService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
