@@ -16,9 +16,14 @@ import { HomeComponent } from './global/components/home/home.component';
 // Componentes historico español
 import { MainHistoricoComponent } from './historico-spain/components/main-historico/main-historico.component';
 import { SelectCiudadComponent } from './historico-spain/components/select-ciudad/select-ciudad.component';
+import { SelectEstacionComponent } from './historico-spain/components/select-estacion/select-estacion.component';
+import { SelectFechasComponent } from './historico-spain/components/select-fechas/select-fechas.component';
+import { GraficasHistoricoComponent } from './historico-spain/components/graficas-historico/graficas-historico.component';
 
 // Servicios
 import { AemetApiService } from './global/services/aemet-api.service';
+import { DataHistoricoService } from './historico-spain/services/data-historico.service';
+import { DataGraficasService } from './historico-spain/services/data-graficas.service';
 
 
 @NgModule({
@@ -30,14 +35,17 @@ import { AemetApiService } from './global/services/aemet-api.service';
 		
 		// Componentes historico españa
 		MainHistoricoComponent,
-		SelectCiudadComponent
+		SelectCiudadComponent,
+		SelectEstacionComponent,
+		SelectFechasComponent,
+		GraficasHistoricoComponent
 	],
 	imports: [
 		BrowserModule,
 		APP_ROUTING, // rutas
 		HttpClientModule    // Http
 	],
-	providers: [AemetApiService],
+	providers: [AemetApiService, DataHistoricoService, DataGraficasService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

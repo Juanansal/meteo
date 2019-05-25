@@ -11,13 +11,25 @@ export class AemetApiService {
 
 	constructor(public http: HttpClient) { }
 	  
-	public test() {
+	public dameEstaciones() {
 
 		let promesa = new Promise( (resolve, reject) => {
 
-			console.log('Pasa por aqui');
-
             this.http.get(`${this.host}/api/meteo/dameEstaciones`)
+            .subscribe(data => { 
+                resolve(data);
+            }, error => {
+                reject(error);
+            })
+        })
+        return promesa;
+    }
+
+    public dameDatosPorMes(idEstacion: string, anyo: string) {
+
+		let promesa = new Promise( (resolve, reject) => {
+
+            this.http.get(`${this.host}/api/meteo/dameDatosDeEstacionPorMes?anyo=${anyo}&estacion=${idEstacion}`)
             .subscribe(data => { 
                 resolve(data);
             }, error => {

@@ -1,16 +1,12 @@
 
-<div class="cargando" *ngIf="cargando">
-    <div class="spinner-border" role="status">
-        <span class="sr-only">Cargando...</span>
-    </div>
-</div>
 
-<div *ngIf="!cargando">
+
+<div>
     <!-- Titulo de cabecera -->
     <h3 id="titulo">Consulta de estaciones meteorologicas españolas</h3>
 
     <!-- Select de seleccion de provincia -->
-    <select class="form-control" (change)="filtrarEstaciones($event)" class="form-control" id="busqueda_provincia">  
+    <select #select class="form-control" (change)="filtrarEstaciones(select.value)" class="form-control" id="busqueda_provincia">  
         <option value='0'>Seleccione una ciudad</option>              
         <option value='ARABA/ALAVA'>Álava</option>
         <option value='ALBACETE'>Albacete</option>

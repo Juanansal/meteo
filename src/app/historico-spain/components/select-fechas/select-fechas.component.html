@@ -1,0 +1,9 @@
+
+<span>Año</span>
+<select #select1anyo class="form-control" class="form-control">  
+    <option [selected]='ultimo' *ngFor="let item of anyos; let ultimo=last;" [value]="item"> {{item}} </option>              
+</select>
+<button [disabled]="data.datosEstacion==null" class="btn btn-success" (click)="pedirDatosMes(select1anyo.value)">Enviar</button>
+<div class="spinner-border" role="status" *ngIf="cargando">
+    <span class="sr-only">Cargando...</span>
+</div>
