@@ -75,10 +75,14 @@ export class GraficasHistoricoComponent implements OnInit {
 
 	ngOnInit() {
 
-		let min = this.data.datosParaGrafica;
-		let med = [];
-		let max = [];
+		// Extraer valores por defecto
+		this.data.asignarTemperaturaPorMes();
 
+		let min = this.data.tempMinima_MES;
+		let med = this.data.tempMedia_MES;
+		let max = this.data.tempMaxima_MES;
+
+		console.log(min);
 
 		let opciones = this.graficas.asignarOpcionesTemperaturaMensual(min, med, max);
 		Highcharts.chart('container', opciones);

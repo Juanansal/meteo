@@ -67,4 +67,5 @@ export class DataGraficasService {
 		}
 		return opciones;
 	}
+
 }
