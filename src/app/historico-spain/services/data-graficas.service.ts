@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 // Variable necesarias para highcharts
 import * as Highcharts from 'highcharts';
+import { DataHistoricoService } from './data-historico.service';
 
 declare var require: any;
 let Boost = require('highcharts/modules/boost');
@@ -19,12 +20,17 @@ noData(Highcharts);
 })
 export class DataGraficasService {
 
-	constructor() { }
+	constructor( public data: DataHistoricoService) { }
 
 	public x:number = 10;
 
 
 	public asignarOpcionesTemperaturaMensual(min?: Array<string>, med?: Array<string>, max?: Array<string>) {
+
+
+		console.log(this.data.datosEstacion);
+
+
 		let opciones: any = {
 			chart: {
 				type: 'line'
@@ -60,11 +66,5 @@ export class DataGraficasService {
 			}]
 		}
 		return opciones;
-	}
-
-	test() {
-		this.x = 35;
-		let opciones = this.asignarOpcionesTemperaturaMensual();
-		Highcharts.chart('container', opciones);
 	}
 }
