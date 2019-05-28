@@ -25,13 +25,14 @@ export class SelectFechasComponent implements OnInit {
 		for(let i=1980; i<=anyoHoy; i++) {
 			this.anyos.push(i);
 		}
-
 		
-
 	}
 	
 	public async pedirDatosMes(anyo:string) {
+
+		// Inicializacion
 		this.cargando = true;
+		this. data.datosParaGrafica = []
 
 		// Recopilacion de los datos a enviar
 		console.log(this.data.datosEstacion);
@@ -41,9 +42,11 @@ export class SelectFechasComponent implements OnInit {
 		.then(data => {
 			//console.log(data);
 
-			// Se insertan los datos encontrados en la biblioteca
+			// Se insertan los datos encontrados en la biblioteca (Selecciona la temperatura ya que es el por defecto)
 			this.data.modo = 1;
 			this.data.datosParaGrafica = data;
+			this.data.asignarTemperaturaPorMes();
+
 		})
 		.catch(error => console.log(error));
 

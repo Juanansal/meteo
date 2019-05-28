@@ -22,10 +22,7 @@ export class DataGraficasService {
 
 	constructor( public data: DataHistoricoService) { }
 
-	public x:number = 10;
-
-
-	public asignarOpcionesTemperaturaMensual(min?: Array<string>, med?: Array<string>, max?: Array<string>) {
+	public asignarOpcionesTemperaturaMensual(min: Array<number>, med: Array<number>, max: Array<number>, nombre: string) {
 
 
 		console.log(this.data.datosEstacion);
@@ -36,7 +33,7 @@ export class DataGraficasService {
 				type: 'line'
 			},
 			title: {
-				text: 'Temperatura media mensual'
+				text: 'Temperatura media mensual de '+nombre
 			},
 			subtitle: {
 				text: 'Fuente: aemet.com'
@@ -58,11 +55,17 @@ export class DataGraficasService {
 				}
 			},
 			series: [{
-				name: 'Tokyo',
-				data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 12, 18.3, 13.9, 15]
+				name: 'Min',
+				data: min,
+				color: 'blue'
 			}, {
-				name: 'London',
-				data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+				name: 'Med',
+				data: med,
+				color: 'orange'
+			}, {
+				name: 'Max',
+				data: max,
+				color: 'red'
 			}]
 		}
 		return opciones;

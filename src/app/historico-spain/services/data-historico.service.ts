@@ -48,9 +48,9 @@ export class DataHistoricoService {
 		if(this.datosEstacion) {
 			for(let i=0; i<12; i++)
 			{
-				let datoMin = this.datosParaGrafica[i].tm_min;
-				let datoMed = this.datosParaGrafica[i].tm_mes;
-				let datoMax = this.datosParaGrafica[i].tm_max;
+				let datoMin = Number.parseFloat(this.datosParaGrafica[i].tm_min);
+				let datoMed = Number.parseFloat(this.datosParaGrafica[i].tm_mes);
+				let datoMax = Number.parseFloat(this.datosParaGrafica[i].tm_max);
 
 				console.log(datoMin);
 				tempMin.push(datoMin);
