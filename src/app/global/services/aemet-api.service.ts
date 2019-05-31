@@ -38,5 +38,19 @@ export class AemetApiService {
         })
         return promesa;
     }
+
+    public dameDatosPorDia(idEstacion: string, anyo: string, mes: string, numDias: string) {
+
+		let promesa = new Promise( (resolve, reject) => {
+
+            this.http.get(`${this.host}/api/meteo/dameDatosDeEstacionPorDia?anyo=${anyo}&estacion=${idEstacion}&mes=${mes}&numDias=${numDias}`)
+            .subscribe(data => { 
+                resolve(data);
+            }, error => {
+                reject(error);
+            })
+        })
+        return promesa;
+    }
 	
 }
