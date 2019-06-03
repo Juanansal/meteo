@@ -29,11 +29,15 @@ export class SelectFechasComponent implements OnInit {
 		}
 	}
 	
+
+
+
+	// Al pinchar sobre el boton enviar de medir datos mensuales
 	public async pedirDatosMes(anyo:string) {
 
 		// Inicializacion
 		this.cargando = true;
-		this. data.datosParaGrafica = []
+		this.data.datosParaGrafica = [];
 
 		// Recopilacion de los datos a enviar
 		console.log(this.data.datosEstacion);
@@ -46,7 +50,7 @@ export class SelectFechasComponent implements OnInit {
 			// Se insertan los datos encontrados en la biblioteca (Selecciona la temperatura ya que es el por defecto)
 			this.data.modo = 1;
 			this.data.datosParaGrafica = data;
-			this.data.asignarTemperaturaPorMes();
+			this.data.asignarDatosPorMes();
 
 		})
 		.catch(error => console.log(error));
@@ -56,11 +60,16 @@ export class SelectFechasComponent implements OnInit {
 	}
 
 
+
+
+
+
+	// Al pinchar sobre el boton enviar de medir datos por dia
 	public async pedirDatosDia( mes: string, anyo: string ) {
 
 		// Inicializacion
 		this.cargando2 = true;
-		this. data.datosParaGrafica = []
+		this. data.datosParaGrafica = [];
 
 		// Recogida de parametros
 		anyo = anyo;

@@ -22,7 +22,7 @@ export class DataGraficasService {
 
 	constructor( public data: DataHistoricoService) { }
 
-	public asignarOpcionesTemperaturaMensual(min: Array<number>, med: Array<number>, max: Array<number>, nombre: string) {
+	public asignarOpcionesGraficaMes(min: Array<number>, med: Array<number>, max: Array<number>, lluvia: Array<number>, nombre: string) {
 
 
 		console.log(this.data.datosEstacion);
@@ -30,43 +30,77 @@ export class DataGraficasService {
 
 		let opciones: any = {
 			chart: {
-				type: 'line'
+				zoomType: 'xy'
 			},
 			title: {
-				text: 'Temperatura media mensual de '+nombre
+				text: 'DATOS'
 			},
 			subtitle: {
-				text: 'Fuente: aemet.com'
+				text: 'Subtitulo'
 			},
-			xAxis: {
-				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-			},
-			yAxis: {
+			xAxis: [{
+				categories: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+					'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+				crosshair: true
+			}],
+			yAxis: [{ // Primary yAxis
+				labels: {
+					format: '{value}°C',
+					style: {
+						color: Highcharts.getOptions().colors[1]
+					}
+				},
 				title: {
-					text: 'Temperatura (°C)'
+					text: 'Temperatura',
+					style: {
+						color: Highcharts.getOptions().colors[1]
+					}
 				}
+			}, { // Secondary yAxis
+				title: {
+					text: 'Lluvia',
+					style: {
+						color: Highcharts.getOptions().colors[0]
+					}
+				},
+				labels: {
+					format: '{value} mm',
+					style: {
+						color: Highcharts.getOptions().colors[0]
+					}
+				},
+				opposite: true
+			}],
+			tooltip: {
+				shared: true
 			},
-			plotOptions: {
-				line: {
-					dataLabels: {
-						enabled: true
-					},
-					enableMouseTracking: false
-				}
+			legend: {
+				layout: 'vertical',
+				align: 'left',
+				x: 120,
+				verticalAlign: 'top',
+				y: 100,
+				floating: true,
+				backgroundColor: 'rgba(255,255,255,0.25)'
 			},
 			series: [{
-				name: 'Min',
-				data: min,
-				color: 'blue'
+				name: 'Lluvia',
+				type: 'column',
+				yAxis: 1,
+				data: lluvia,
+				tooltip: {
+					valueSuffix: ' mm'
+				}
+			
 			}, {
-				name: 'Med',
-				data: med,
-				color: 'orange'
-			}, {
-				name: 'Max',
+				name: 'Temperatura Maxima',
+				type: 'spline',
 				data: max,
-				color: 'red'
-			}]
+				tooltip: {
+					valueSuffix: '°C'
+				}
+			},
+		]
 		}
 		return opciones;
 	}

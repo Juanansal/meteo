@@ -43,7 +43,7 @@ export class AemetApiService {
 
 		let promesa = new Promise( (resolve, reject) => {
 
-            this.http.get(`${this.host}/api/meteo/dameDatosDeEstacionPorDia?anyo=${anyo}&estacion=${idEstacion}&mes=${mes}&numDias=${numDias}`)
+            this.http.get(`${this.host}/api/meteo/dameDatosDeEstacionPorDia?anyo=${anyo}&mes=${mes}&numdias=${numDias}&estacion=${idEstacion}`)
             .subscribe(data => { 
                 resolve(data);
             }, error => {

@@ -17,12 +17,9 @@ export class DataHistoricoService {
 	tempMedia_MES: any = [];
 	tempMaxima_MES: any = [];
 	tempMinima_MES: any = [];
+	lluvia_MES: any = [];
 
 	 
-
-
-
-	// 1 Lineas
 	
 
 
@@ -38,10 +35,11 @@ export class DataHistoricoService {
 
 
 	// Extrae los datos de las temperaturas por mes de los datos de la estacion
-	asignarTemperaturaPorMes(): void {
-		let tempMin: Array<Number> = [];
-		let tempMed: Array<Number> = [];
-		let tempMax: Array<Number> = [];
+	asignarDatosPorMes(): void {
+		let tempMin: Array<number> = [];
+		let tempMed: Array<number> = [];
+		let tempMax: Array<number> = [];
+		let lluvia: Array<number> = [];
 
 		console.log(this.datosEstacion);
 
@@ -51,11 +49,13 @@ export class DataHistoricoService {
 				let datoMin = Number.parseFloat(this.datosParaGrafica[i].tm_min);
 				let datoMed = Number.parseFloat(this.datosParaGrafica[i].tm_mes);
 				let datoMax = Number.parseFloat(this.datosParaGrafica[i].tm_max);
+				let datoLluvia = Number.parseFloat(this.datosParaGrafica[i].p_mes);
 
 				console.log(datoMin);
 				tempMin.push(datoMin);
 				tempMed.push(datoMed);
 				tempMax.push(datoMax);
+				lluvia.push(datoLluvia);
 			}
 		}
 
@@ -64,5 +64,6 @@ export class DataHistoricoService {
 		this.tempMinima_MES = tempMin;
 		this.tempMedia_MES = tempMed;
 		this.tempMaxima_MES = tempMax;
+		this.lluvia_MES = lluvia;
 	}
 }

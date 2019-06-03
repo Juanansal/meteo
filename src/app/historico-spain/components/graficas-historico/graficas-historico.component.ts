@@ -40,8 +40,9 @@ export class GraficasHistoricoComponent implements OnInit {
 		let med = this.data.tempMedia_MES;
 		let max = this.data.tempMaxima_MES;
 		let nombre = this.data.datosEstacion.nombre;
+		let lluvia = this.data.lluvia_MES;
 
-		let opciones = this.graficas.asignarOpcionesTemperaturaMensual(min, med, max, nombre);
+		let opciones = this.graficas.asignarOpcionesGraficaMes(min, med, max, lluvia, nombre);
 		Highcharts.chart('container', opciones);
 	}
 
