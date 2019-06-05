@@ -41,8 +41,17 @@ export class GraficasHistoricoComponent implements OnInit {
 		let max = this.data.tempMaxima_MES;
 		let nombre = this.data.datosEstacion.nombre;
 		let lluvia = this.data.lluvia_MES;
+		let opciones = null;
 
-		let opciones = this.graficas.asignarOpcionesGraficaMes(min, med, max, lluvia, nombre);
+		// Pinta la grafica segun el modo seleccionado (Boton pulsado )
+		switch(this.data.modo) {
+			case 1: opciones = this.graficas.asignarOpcionesGraficaMes(min, med, max, lluvia, nombre);
+					break;
+
+			case 2: opciones = this.graficas.asignarOpcionesGraficaDia(this.data.datosDIA, nombre);
+					break;
+		}
+		
 		Highcharts.chart('container', opciones);
 	}
 

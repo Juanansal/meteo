@@ -19,7 +19,7 @@
     <option [selected]='ultimo' *ngFor="let item of anyos; let ultimo=last;" [value]="item"> {{item}} </option>              
 </select>
 <button [disabled]="data.datosEstacion==null" class="btn btn-success" (click)="pedirDatosDia(select2mes.value, select2anyo.value)">Enviar</button>
-<div class="spinner-border" role="status" *ngIf="cargando">
+<div class="spinner-border" role="status" *ngIf="cargando2">
     <span class="sr-only">Cargando...</span>
 </div>
 

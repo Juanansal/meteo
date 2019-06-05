@@ -19,7 +19,13 @@ export class DataHistoricoService {
 	tempMinima_MES: any = [];
 	lluvia_MES: any = [];
 
-	 
+	// Modo 2
+	datosDIA = {
+		tempMedia: [],
+		tempMaxima: [],
+		tempMinima: [],
+		lluvia: []
+	}
 	
 
 
@@ -59,11 +65,41 @@ export class DataHistoricoService {
 			}
 		}
 
-		
-
 		this.tempMinima_MES = tempMin;
 		this.tempMedia_MES = tempMed;
 		this.tempMaxima_MES = tempMax;
 		this.lluvia_MES = lluvia;
 	}
+
+
+	asignarDatosPorDia(): void {
+		let tempMin: Array<number> = [];
+		let tempMed: Array<number> = [];
+		let tempMax: Array<number> = [];
+		let lluvia: Array<number> = [];
+
+		console.log(this.datosEstacion);
+
+		if(this.datosEstacion) {
+			for(let i=0; i<12; i++)
+			{
+				let datoMin = Number.parseFloat(this.datosParaGrafica[i].tmin);
+				let datoMed = Number.parseFloat(this.datosParaGrafica[i].tmed);
+				let datoMax = Number.parseFloat(this.datosParaGrafica[i].tmmax);
+				let datoLluvia = Number.parseFloat(this.datosParaGrafica[i].prec);
+
+				//console.log(datoMin);
+				tempMin.push(datoMin);
+				tempMed.push(datoMed);
+				tempMax.push(datoMax);
+				lluvia.push(datoLluvia);
+			}
+		}
+
+		this.datosDIA.tempMinima = tempMin;
+		this.datosDIA.tempMedia = tempMed;
+		this.datosDIA.tempMaxima = tempMax;
+		this.datosDIA.lluvia = lluvia;
+	}
+
 }

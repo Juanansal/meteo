@@ -47,7 +47,7 @@ export class SelectFechasComponent implements OnInit {
 		.then(data => {
 			//console.log(data);
 
-			// Se insertan los datos encontrados en la biblioteca (Selecciona la temperatura ya que es el por defecto)
+			// Se insertan los datos encontrados en la biblioteca
 			this.data.modo = 1;
 			this.data.datosParaGrafica = data;
 			this.data.asignarDatosPorMes();
@@ -81,11 +81,15 @@ export class SelectFechasComponent implements OnInit {
 		await this.apiAemet.dameDatosPorDia(estacion, anyo, mes, numDias.toString())
 		.then(data => {
 			console.log(data);
+			this.data.modo = 2;
+			this.data.datosParaGrafica = data;
+			// this.data.asignarDatosPorDia();
 		})
 		.catch(error => {
 			console.log(error);
 		})
 
+		this.cargando2 = false;
 		console.log(mes+'   '+anyo+'     '+numDias+'     '+estacion);
 	}
 
