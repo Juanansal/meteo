@@ -13,14 +13,27 @@ export class DataHistoricoService {
 
 	// Datos especificos de una estacion seleccionada (Para grafica)
 	modo: number = -1;
+
+
+
+	// Modo 1
+	datosMES: DatosGrafica = {
+		tempMedia: [],
+		tempMaxima: [],
+		tempMinima: [],
+		lluvia: []
+	}
+
 	datosParaGrafica: any = [];  // Datos extraidos con los datos especificos para la grafica
 	tempMedia_MES: any = [];
 	tempMaxima_MES: any = [];
 	tempMinima_MES: any = [];
 	lluvia_MES: any = [];
 
+
+
 	// Modo 2
-	datosDIA = {
+	datosDIA: DatosGrafica = {
 		tempMedia: [],
 		tempMaxima: [],
 		tempMinima: [],
@@ -103,3 +116,11 @@ export class DataHistoricoService {
 	}
 
 }
+
+
+export interface DatosGrafica {
+	tempMedia: Array<any>,
+	tempMaxima: Array<any>,
+	tempMinima: Array<any>,
+	lluvia: Array<any>
+  }

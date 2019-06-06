@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 // Variable necesarias para highcharts
 import * as Highcharts from 'highcharts';
-import { DataHistoricoService } from './data-historico.service';
+import { DataHistoricoService, DatosGrafica } from './data-historico.service';
 
 declare var require: any;
 let Boost = require('highcharts/modules/boost');
@@ -128,7 +128,7 @@ export class DataGraficasService {
 	}
 
 
-	public asignarOpcionesGraficaDia(datos: any, nombre: string) {
+	public asignarOpcionesGraficaDia(datos: DatosGrafica, nombre: string) {
 
 
 		console.log(datos);
