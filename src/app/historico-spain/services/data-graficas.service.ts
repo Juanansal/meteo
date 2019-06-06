@@ -131,7 +131,7 @@ export class DataGraficasService {
 	public asignarOpcionesGraficaDia(datos: any, nombre: string) {
 
 
-		console.log(this.data.datosEstacion);
+		console.log(datos);
 
 
 		let opciones: any = {
@@ -145,15 +145,15 @@ export class DataGraficasService {
 				text: 'Subtitulo'
 			},
 			xAxis: [{
-				categories: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-					'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+				categories: ['1', '2', '3', '4', '5', '6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32'],
 				crosshair: true
 			}],
 			yAxis: [{ // Primary yAxis
 				labels: {
 					format: '{value}°C',
 					style: {
-						color: Highcharts.getOptions().colors[1]
+						color: Highcharts.getOptions().colors[1],
+						min: 0
 					}
 				},
 				title: {
@@ -196,7 +196,7 @@ export class DataGraficasService {
 				name: 'Lluvia',
 				type: 'column',
 				yAxis: 1,
-				data: datos.prec,
+				data: datos.lluvia,
 				tooltip: {
 					valueSuffix: ' mm'
 				}
@@ -204,7 +204,7 @@ export class DataGraficasService {
 			}, {
 				name: 'Temperatura Maxima',
 				type: 'spline',
-				data: datos.max,
+				data: datos.tempMaxima,
 				color: 'red',
 				tooltip: {
 					valueSuffix: '°C'
@@ -213,7 +213,7 @@ export class DataGraficasService {
 			{
 				name: 'Temperatura Media',
 				type: 'spline',
-				data: datos.med,
+				data: datos.tempMedia,
 				color: 'orange',
 				tooltip: {
 					valueSuffix: '°C'
@@ -222,7 +222,7 @@ export class DataGraficasService {
 			{
 				name: 'Temperatura Minima',
 				type: 'spline',
-				data: datos.min,
+				data: datos.tempMinima,
 				color: 'blue',
 				tooltip: {
 					valueSuffix: '°C'

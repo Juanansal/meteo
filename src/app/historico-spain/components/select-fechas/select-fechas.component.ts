@@ -83,7 +83,7 @@ export class SelectFechasComponent implements OnInit {
 			console.log(data);
 			this.data.modo = 2;
 			this.data.datosParaGrafica = data;
-			// this.data.asignarDatosPorDia();
+			this.data.asignarDatosPorDia(numDias);
 		})
 		.catch(error => {
 			console.log(error);

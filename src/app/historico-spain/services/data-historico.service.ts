@@ -25,8 +25,7 @@ export class DataHistoricoService {
 		tempMaxima: [],
 		tempMinima: [],
 		lluvia: []
-	}
-	
+	}	
 
 
 
@@ -72,7 +71,8 @@ export class DataHistoricoService {
 	}
 
 
-	asignarDatosPorDia(): void {
+	asignarDatosPorDia(numDias: number): void {
+		console.log('Pasa por aqui');
 		let tempMin: Array<number> = [];
 		let tempMed: Array<number> = [];
 		let tempMax: Array<number> = [];
@@ -81,11 +81,11 @@ export class DataHistoricoService {
 		console.log(this.datosEstacion);
 
 		if(this.datosEstacion) {
-			for(let i=0; i<12; i++)
+			for(let i=0; i<numDias; i++)
 			{
 				let datoMin = Number.parseFloat(this.datosParaGrafica[i].tmin);
 				let datoMed = Number.parseFloat(this.datosParaGrafica[i].tmed);
-				let datoMax = Number.parseFloat(this.datosParaGrafica[i].tmmax);
+				let datoMax = Number.parseFloat(this.datosParaGrafica[i].tmax);
 				let datoLluvia = Number.parseFloat(this.datosParaGrafica[i].prec);
 
 				//console.log(datoMin);
