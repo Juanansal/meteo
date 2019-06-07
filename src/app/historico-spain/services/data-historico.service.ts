@@ -12,9 +12,12 @@ export class DataHistoricoService {
 	datosEstacion: any = null;
 
 	// Datos especificos de una estacion seleccionada (Para grafica)
+
+	// Modo que seleccioona que debemos pintar en la grafica
+	// 1 Por MES
+	// 2 Por DIA
 	modo: number = -1;
-
-
+	datosParaGrafica: any = [];  // Datos extraidos con los datos especificos para la grafica
 
 	// Modo 1
 	datosMES: DatosGrafica = {
@@ -23,14 +26,6 @@ export class DataHistoricoService {
 		tempMinima: [],
 		lluvia: []
 	}
-
-	datosParaGrafica: any = [];  // Datos extraidos con los datos especificos para la grafica
-	tempMedia_MES: any = [];
-	tempMaxima_MES: any = [];
-	tempMinima_MES: any = [];
-	lluvia_MES: any = [];
-
-
 
 	// Modo 2
 	datosDIA: DatosGrafica = {
@@ -77,10 +72,10 @@ export class DataHistoricoService {
 			}
 		}
 
-		this.tempMinima_MES = tempMin;
-		this.tempMedia_MES = tempMed;
-		this.tempMaxima_MES = tempMax;
-		this.lluvia_MES = lluvia;
+		this.datosMES.tempMinima = tempMin;
+		this.datosMES.tempMedia = tempMed;
+		this.datosMES.tempMaxima = tempMax;
+		this.datosMES.lluvia = lluvia;
 	}
 
 

@@ -22,7 +22,7 @@ export class DataGraficasService {
 
 	constructor( public data: DataHistoricoService) { }
 
-	public asignarOpcionesGraficaMes(min: Array<number>, med: Array<number>, max: Array<number>, lluvia: Array<number>, nombre: string) {
+	public asignarOpcionesGraficaMes(datos: DatosGrafica, nombre: string) {
 
 
 		console.log(this.data.datosEstacion);
@@ -90,7 +90,7 @@ export class DataGraficasService {
 				name: 'Lluvia',
 				type: 'column',
 				yAxis: 1,
-				data: lluvia,
+				data: datos.lluvia,
 				tooltip: {
 					valueSuffix: ' mm'
 				}
@@ -98,7 +98,7 @@ export class DataGraficasService {
 			}, {
 				name: 'Temperatura Maxima',
 				type: 'spline',
-				data: max,
+				data: datos.tempMaxima,
 				color: 'red',
 				tooltip: {
 					valueSuffix: '°C'
@@ -107,7 +107,7 @@ export class DataGraficasService {
 			{
 				name: 'Temperatura Media',
 				type: 'spline',
-				data: med,
+				data: datos.tempMedia,
 				color: 'orange',
 				tooltip: {
 					valueSuffix: '°C'
@@ -116,7 +116,7 @@ export class DataGraficasService {
 			{
 				name: 'Temperatura Minima',
 				type: 'spline',
-				data: min,
+				data: datos.tempMinima,
 				color: 'blue',
 				tooltip: {
 					valueSuffix: '°C'

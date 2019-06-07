@@ -36,16 +36,12 @@ export class GraficasHistoricoComponent implements OnInit {
 	ngOnInit() {
 
 		// Extraer valores por defecto
-		let min = this.data.tempMinima_MES;
-		let med = this.data.tempMedia_MES;
-		let max = this.data.tempMaxima_MES;
 		let nombre = this.data.datosEstacion.nombre;
-		let lluvia = this.data.lluvia_MES;
 		let opciones = null;
 
-		// Pinta la grafica segun el modo seleccionado (Boton pulsado )
+		// Pinta la grafica segun el modo seleccionado (Boton pulsado)
 		switch(this.data.modo) {
-			case 1: opciones = this.graficas.asignarOpcionesGraficaMes(min, med, max, lluvia, nombre);
+			case 1: opciones = this.graficas.asignarOpcionesGraficaMes(this.data.datosMES, nombre);
 					break;
 
 			case 2: opciones = this.graficas.asignarOpcionesGraficaDia(this.data.datosDIA, nombre);

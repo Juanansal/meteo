@@ -4,7 +4,7 @@
 <select #select1anyo class="form-control" class="form-control">  
     <option [selected]='ultimo' *ngFor="let item of anyos; let ultimo = last;" [value]="item"> {{item}} </option>              
 </select>
-<button [disabled]="data.datosEstacion==null" class="btn btn-success" (click)="pedirDatosMes(select1anyo.value)">Enviar</button>
+<button [disabled]="data.datosEstacion==null || cargando==true || cargando2==true" class="btn btn-success" (click)="pedirDatosMes(select1anyo.value)">Enviar</button>
 <div class="spinner-border" role="status" *ngIf="cargando">
     <span class="sr-only">Cargando...</span>
 </div>
@@ -18,7 +18,7 @@
 <select #select2anyo class="form-control" class="form-control">  
     <option [selected]='ultimo' *ngFor="let item of anyos; let ultimo=last;" [value]="item"> {{item}} </option>              
 </select>
-<button [disabled]="data.datosEstacion==null" class="btn btn-success" (click)="pedirDatosDia(select2mes.value, select2anyo.value)">Enviar</button>
+<button [disabled]="data.datosEstacion==null || cargando==true || cargando2==true" class="btn btn-success" (click)="pedirDatosDia(select2mes.value, select2anyo.value)">Enviar</button>
 <div class="spinner-border" role="status" *ngIf="cargando2">
     <span class="sr-only">Cargando...</span>
 </div>
