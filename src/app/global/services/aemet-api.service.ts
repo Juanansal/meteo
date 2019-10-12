@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AemetApiService {
 
-    private host = 'http://juanansal.herokuapp.com'
+    private host = 'https://juanansal.herokuapp.com'
     token = '';
 
 	constructor(public http: HttpClient) { }

@@ -1,0 +1,42 @@
+/* Capa contenedora busqueda mensual */
+#capa_mensual, #capa_anual {
+    margin: 0 auto;
+    margin-top: 1px;
+    max-width: 550px;
+}
+
+#capa_mensual {
+    border-top: 1px solid black;
+    margin-top: -20px;
+    padding-top: 15px;
+}
+
+#capa_anual {
+    margin-top: -35px;
+}
+
+select {
+    border: 1px solid black;
+}
+
+.cargandoo {
+    display : inline-block;
+}
+
+button, select {
+    margin: 2px;
+}
+
+
+/* Ruleta de cargando */
+
+.spinner-border {
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.spinner{
+    font-weight: bold;
+    font-size: 10px;
+    color: red;
+}

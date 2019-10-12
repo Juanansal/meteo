@@ -1,3 +1,12 @@
+/* CSS ordenado segun orden de aparición en el HTML */
+
+body {
+    background-color: #FFE;
+ }
+ /****************************************************/
+ /******************* Cabecera ***********************/
+ /****************************************************/ 
+
 body {
     margin: 0px;
     padding: 0px;

@@ -33,10 +33,10 @@ export class DataGraficasService {
 				zoomType: 'xy'
 			},
 			title: {
-				text: 'DATOS'
+				text: this.data.datosEstacion.provincia+' - '+ this.data.datosEstacion.nombre
 			},
 			subtitle: {
-				text: 'Subtitulo'
+				text: `Latitud: ${this.data.datosEstacion.latitud} - Longitud: ${this.data.datosEstacion.longitud}    /// Altitud:    ${this.data.datosEstacion.altitud}m ` 
 			},
 			xAxis: [{
 				categories: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
@@ -139,10 +139,10 @@ export class DataGraficasService {
 				zoomType: 'xy'
 			},
 			title: {
-				text: 'DATOS'
+				text: this.data.datosEstacion.provincia+' - '+ this.data.datosEstacion.nombre
 			},
 			subtitle: {
-				text: 'Subtitulo'
+				text: `Latitud: ${this.data.datosEstacion.latitud} - Longitud: ${this.data.datosEstacion.longitud}    /// Altitud:    ${this.data.datosEstacion.altitud}m `
 			},
 			xAxis: [{
 				categories: ['1', '2', '3', '4', '5', '6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32'],

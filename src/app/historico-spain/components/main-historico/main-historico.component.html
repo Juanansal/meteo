@@ -15,6 +15,9 @@
         <br><br>
         <app-select-fechas *ngIf="data.estacionesCiudad.length!=0"></app-select-fechas>
         <app-graficas-historico *ngIf="data.datosParaGrafica.length!=0"></app-graficas-historico>
+        <!-- Test para comprobacion de datos no disponibles
+            <div *ngIf="data.datosParaGrafica.length==0 && data.modo!=-1">Datos no disponibles</div> 
+        -->
     </div>
    
 </div>

@@ -1,25 +1,52 @@
 
-<!-- Zona 1 -->
-<span>Año</span>
-<select #select1anyo class="form-control" class="form-control">  
-    <option [selected]='ultimo' *ngFor="let item of anyos; let ultimo = last;" [value]="item"> {{item}} </option>              
-</select>
-<button [disabled]="data.datosEstacion==null || cargando==true || cargando2==true" class="btn btn-success" (click)="pedirDatosMes(select1anyo.value)">Enviar</button>
-<div class="spinner-border" role="status" *ngIf="cargando">
-    <span class="sr-only">Cargando...</span>
+<!-- Zona 1  -->
+
+<div id="capa_mensual" class="row">
+    <div class="col-form-label col-lg-4"> <strong>Consulta mensual:</strong></div>
+        <div class="col-lg-12">
+            <div class="form-row">
+                <div class="col-lg-3 col-md-12"> 
+                    <select #select1anyo class="form-control" class="form-control">  
+                        <option [selected]='ultimo' *ngFor="let item of anyos; let ultimo = last;" [value]="item"> {{item}} </option>              
+                    </select>
+                </div>
+                    
+                <div class="col-lg-4 col-md-12">
+                    <button [disabled]="data.datosEstacion==null || cargando==true || cargando2==true" class="btn btn-primary" (click)="pedirDatosMes(select1anyo.value)">Enviar</button>
+                    <div class="spinner-grow spinner-grow-sm" role="status" *ngIf="cargando">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                </div>
+            </div>
+        </div>
 </div>
 
 <br><br>
 
-<!-- Zona 2 -->
-<select #select2mes class="form-control" class="form-control">  
-    <option [selected]='primero' *ngFor="let item of meses; let primero = first; let i = index;" [value]="i"> {{item}} </option>              
-</select>
-<select #select2anyo class="form-control" class="form-control">  
-    <option [selected]='ultimo' *ngFor="let item of anyos; let ultimo=last;" [value]="item"> {{item}} </option>              
-</select>
-<button [disabled]="data.datosEstacion==null || cargando==true || cargando2==true" class="btn btn-success" (click)="pedirDatosDia(select2mes.value, select2anyo.value)">Enviar</button>
-<div class="spinner-border" role="status" *ngIf="cargando2">
-    <span class="sr-only">Cargando...</span>
-</div>
 
+
+<!-- Zona 2 -->
+
+<div id="capa_anual" class="row">
+    <div class="col-form-label col-lg-4"> <strong>Consulta anual:</strong></div>
+        <div class="col-lg-12">
+            <div class="form-row">
+                <div class="col-lg-3 col-md-12"> 
+                    <select #select2mes class="form-control" class="form-control">  
+                        <option [selected]='primero' *ngFor="let item of meses; let primero = first; let i = index;" [value]="i"> {{item}} </option>              
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-12"> 
+                    <select #select2anyo class="form-control" class="form-control">  
+                        <option [selected]='ultimo' *ngFor="let item of anyos; let ultimo=last;" [value]="item"> {{item}} </option>              
+                    </select>
+                </div>
+                <div class="col-lg-4 col-md-12"> 
+                        <button [disabled]="data.datosEstacion==null || cargando==true || cargando2==true" class="btn btn-primary" (click)="pedirDatosDia(select2mes.value, select2anyo.value)">Enviar</button>
+                        <div class="spinner-grow spinner-grow-sm" role="status" *ngIf="cargando2">
+                            <span class="sr-only spinner">Cargando...</span>
+                        </div>
+                </div>
+            </div>
+        </div>
+</div>
