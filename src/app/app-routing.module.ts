@@ -7,7 +7,7 @@ const APP_ROUTES:Routes = [
     { path: 'home', component: HomeComponent }, 
     { path: 'historico', component: MainHistoricoComponent }, 
     { path: 'radar', component: MainRadarComponent }, 
-    { path: '**', redirectTo: 'radar' }
+    { path: '**', redirectTo: 'historico' }
 ];
 
 
